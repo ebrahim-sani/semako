@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+model Member {
+  id             String   @id @default(uuid())
+  fullName       String
+  email          String   @unique
+  address        String?
+  phoneNumber    String
+  contactDetails String?
+  currentBalance Float?   @default(0.00)
+  totalEarned    Float?   @default(0.00)
+  createdAt      DateTime @default(now())
+  password       String
+
+  enrollments  Enrollment[]
+  history      History[]
+  transactions Transactions[]
+}
+
+model Scheme {
+  id             String   @id @default(cuid())
+  name           String
+  description    String
+  interestRate   Float
+  maturityMonths Int
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  enrollments Enrollment[]
+}
+
+model Enrollment {
+  id             String   @id @default(cuid())
+  memberId       String
+  schemeId       String
+  schemeTitle    String
+  startDate      DateTime @default(now())
+  endDate        DateTime
+  principal      Float
+  status         String // e.g "Active", "Closed", "Matured"
+  interestToEarn Float
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  member         Member   @relation(fields: [memberId], references: [id])
+  scheme         Scheme   @relation(fields: [schemeId], references: [id])
+}
+
+model History {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  date        DateTime @default(now())
+  Member      Member?  @relation(fields: [memberId], references: [id])
+  memberId    String?
+}
+
+model Transactions {
+  id        String   @id @default(cuid())
+  amount    String
+  reference String
+  date      DateTime @default(now())
+  Member    Member?  @relation(fields: [memberId], references: [id])
+  memberId  String?
+}

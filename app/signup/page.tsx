@@ -62,7 +62,7 @@ export default function Page() {
       <main className="min-h-screen gradient-bg-services flex flex-col justify-center items-center">
          <div className="container flex items-center flex-col mb-3">
             <div className="flex max-sm:mt-4 w-full items-center">
-               <div className="flex items-center justify-center text-lg lg:text-xl font-semibold italic">
+               <div className="flex w-full items-center justify-center text-lg lg:text-xl font-semibold italic">
                   <Link href="/">
                      <h1 className="bg-no-repeat uppercase font-bold text-2xl italic text-blue-500">
                         LOGO

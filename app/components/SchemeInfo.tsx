@@ -113,7 +113,7 @@ const SchemeInfo = ({
                         setAmount(e.target.value);
                         calculateExpectedProfit();
                      }}
-                     className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ps-8"
+                     className="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ps-8"
                      placeholder="Amount"
                   />
                   {insufficient && (
@@ -130,7 +130,7 @@ const SchemeInfo = ({
                      type="text"
                      value={expectedProfit?.toString() || ""}
                      readOnly
-                     className="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ps-8"
+                     className="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ps-8"
                      placeholder="Expected profit"
                   />
                </div>
@@ -143,7 +143,7 @@ const SchemeInfo = ({
                   type="button"
                   className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:border-none font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full"
                >
-                  {clicked && currBalance > parseInt(amount) ? (
+                  {clicked && currBalance >= parseInt(amount) ? (
                      <span className="loading loading-spinner"></span>
                   ) : (
                      "Enroll"

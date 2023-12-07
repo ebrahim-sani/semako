@@ -62,7 +62,7 @@ const Header = ({ user_name }: { user_name: string | null }) => {
                         <li>
                            <div className="flex items-center gap-2 w-full hover:bg-slate-800">
                               <MdManageAccounts />
-                              <p>Profile</p>
+                              <p className="text-gray-300">Profile</p>
                            </div>
                         </li>
                         <li>
@@ -77,7 +77,7 @@ const Header = ({ user_name }: { user_name: string | null }) => {
                               {clicked ? (
                                  <span className="loading loading-spinner loading-xs ml-3"></span>
                               ) : (
-                                 <p>Sign Out</p>
+                                 <p className="text-gray-300">Sign Out</p>
                               )}
                            </div>
                         </li>

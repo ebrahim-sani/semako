@@ -21,9 +21,9 @@ export default async function Page({
       where: { id: params.schemeId },
    });
 
-   console.log(scheme);
+   // console.log(scheme);
 
-   console.log(params.schemeId);
+   // console.log(params.schemeId);
 
    return (
       <div className="flex min-h-screen flex-col items-start w-full px-2">

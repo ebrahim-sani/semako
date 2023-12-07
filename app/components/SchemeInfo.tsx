@@ -69,7 +69,7 @@ const SchemeInfo = ({
             <div className="flex flex-col items-start w-full sm:w-1/2 lg:w-1/3 gap-5">
                <div className="flex flex-col items-start gap-1">
                   <strong className="text-xs text-gray-300">Title:</strong>
-                  <h2 className="text-2xl">{scheme?.name}</h2>
+                  <h2 className="text-2xl text-gray-300">{scheme?.name}</h2>
                </div>
                <div className="flex items-center gap-6">
                   <div className="flex items-center gap-1">

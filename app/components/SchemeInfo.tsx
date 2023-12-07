@@ -57,6 +57,7 @@ const SchemeInfo = ({
                setClicked(false);
             }
          } catch (err) {
+            setClicked(false);
             console.log(err);
          } finally {
             setClicked(false);

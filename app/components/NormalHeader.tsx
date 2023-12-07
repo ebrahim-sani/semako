@@ -81,7 +81,7 @@ const NormalHeader = ({ headerTitle, backUrl, user_fullName }: headerProps) => {
                      <ul className="dropdown-content z-[1] menu p-2 shadow rounded-box w-40 bg-slate-950 border border-gray-700 gap-2">
                         <li>
                            <div className="flex items-center gap-2 w-full hover:bg-slate-800">
-                              <MdManageAccounts />
+                              <MdManageAccounts className="text-gray-300" />
                               <p className="text-gray-300">Profile</p>
                            </div>
                         </li>
@@ -93,7 +93,7 @@ const NormalHeader = ({ headerTitle, backUrl, user_fullName }: headerProps) => {
                               }}
                               className="flex items-center gap-2 w-full hover:bg-slate-800"
                            >
-                              <IoLogOutOutline />
+                              <IoLogOutOutline className="text-gray-300" />
                               {clicked ? (
                                  <span className="loading loading-spinner loading-xs ml-3"></span>
                               ) : (

@@ -53,6 +53,7 @@ export default function Page() {
             toast.error("😔 Something went wrong!!");
          }
       } catch (err) {
+         setClicked(false);
          console.log("Something went wrong!", err);
       }
       setClicked(false);

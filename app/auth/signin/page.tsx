@@ -5,29 +5,31 @@ import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
 
-async function signin(data: any) {
-   const email_address = data.get("email");
-   const password = data.get("password");
-
-   try {
-      const res = await signIn("credentials", {
-         email_address,
-         password,
-         redirect: true,
-         callbackUrl: "/dashboard",
-      });
-      if (res?.ok) {
-         toast.success("👌 Login successful");
-      }
-   } catch (err) {
-      console.log("Something went wrong!", err);
-   }
-}
-
 const Login = () => {
    const [clicked, setClicked] = useState<boolean>(false);
    const [email, setEmail] = useState<string | null>("");
    const [password, setPassword] = useState<string | number>("");
+
+   async function signin(data: any) {
+      const email_address = data.get("email");
+      const password = data.get("password");
+
+      try {
+         const res = await signIn("credentials", {
+            email_address,
+            password,
+            redirect: true,
+            callbackUrl: "/dashboard",
+         });
+         if (res?.ok) {
+            toast.success("👌 Login successful");
+         }
+      } catch (err) {
+         toast.success("Login failed");
+         setClicked(false);
+         // console.log("Something went wrong!", err);
+      }
+   }
 
    return (
       <main className="h-screen flex flex-col justify-center items-center">

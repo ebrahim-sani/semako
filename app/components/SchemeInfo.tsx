@@ -113,7 +113,7 @@ const SchemeInfo = ({
                         setAmount(e.target.value);
                         calculateExpectedProfit();
                      }}
-                     className="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ps-8"
+                     className="bg-gray-800 border border-gray-400 text-white text-sm rounded-lg block w-full p-2.5 ps-8"
                      placeholder="Amount"
                   />
                   {insufficient && (
@@ -130,7 +130,7 @@ const SchemeInfo = ({
                      type="text"
                      value={expectedProfit?.toString() || ""}
                      readOnly
-                     className="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ps-8"
+                     className="bg-gray-800 border border-gray-400 text-white text-sm rounded-lg block w-full p-2.5 ps-8"
                      placeholder="Expected profit"
                   />
                </div>

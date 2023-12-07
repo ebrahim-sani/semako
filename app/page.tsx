@@ -9,12 +9,12 @@ export default async function Page() {
             <div className="flex flex-col items-center justify-between h-[60%] w-full">
                <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm flex">
                   <Link href="/signup">
-                     <button className="btn max-sm:btn-sm btn-outline">
+                     <button className="btn text-gray-300 border border-gray-500 max-sm:btn-sm btn-outline">
                         Sign Up
                      </button>
                   </Link>
                   <Link href="/auth/signin">
-                     <button className="btn max-sm:btn-sm btn-outline">
+                     <button className="btn text-gray-300 border border-gray-500 max-sm:btn-sm btn-outline">
                         Sign In
                      </button>
                   </Link>

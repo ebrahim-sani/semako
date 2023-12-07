@@ -95,7 +95,7 @@ const NormalHeader = ({ headerTitle, backUrl, user_fullName }: headerProps) => {
                            >
                               <IoLogOutOutline className="text-gray-300" />
                               {clicked ? (
-                                 <span className="loading loading-spinner loading-xs ml-3"></span>
+                                 <span className="loading text-gray-300 loading-spinner loading-xs ml-3"></span>
                               ) : (
                                  <p className="text-gray-300">Sign Out</p>
                               )}

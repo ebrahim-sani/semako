@@ -23,7 +23,6 @@ export const authOptions: NextAuthOptions = {
             },
          },
          async authorize(credentials) {
-            // Handle Auth
             if (!credentials?.email_address || !credentials?.password) {
                return null;
             }
@@ -70,12 +69,11 @@ export const authOptions: NextAuthOptions = {
       },
 
       jwt: ({ token, user }) => {
-         // console.log("JWT Callback", { token, user });
          if (user) {
             const u = user as unknown as any;
 
-            // Set the expiration time to 2 hours from now (in seconds)
-            const expires = Math.floor(Date.now() / 1000) + 2 * 60 * 60;
+            // Set the expiration time to 1 hours from now (in seconds)
+            const expires = Math.floor(Date.now() / 1000) + 1 * 60 * 60;
 
             return {
                ...token,

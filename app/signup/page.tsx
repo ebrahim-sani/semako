@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -48,7 +47,6 @@ export default function Page() {
 
          if (res?.status === 200) {
             toast.success("👌 Success, click Signin!");
-            // redirect("/auth/login");
          } else {
             toast.error("😔 Something went wrong!!");
          }

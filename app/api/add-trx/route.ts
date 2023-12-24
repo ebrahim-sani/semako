@@ -15,30 +15,33 @@ export async function POST(req: Request) {
 
    const { reference, amount } = await req.json();
 
+   // Promise all
    if (reference && amount) {
       try {
-         const update = await prisma.member.update({
-            where: { id: memberId },
-            data: {
-               currentBalance: {
-                  increment: parseFloat(amount),
+         const res = await Promise.all([
+            await prisma.member.update({
+               where: { id: memberId },
+               data: {
+                  currentBalance: {
+                     increment: parseFloat(amount),
+                  },
                },
-            },
-         });
-         const trx = await prisma.transactions.create({
-            data: {
-               amount,
-               reference,
-               memberId,
-            },
-         });
-         const history = await prisma.history.create({
-            data: {
-               title: `Funded ₦${amount}`,
-               description: `Deposited ₦${amount} with a reference number of ${reference}`,
-               memberId,
-            },
-         });
+            }),
+            await prisma.transactions.create({
+               data: {
+                  amount,
+                  reference,
+                  memberId,
+               },
+            }),
+            await prisma.history.create({
+               data: {
+                  title: `Funded ₦${amount}`,
+                  description: `Deposited ₦${amount} with a reference number of ${reference}`,
+                  memberId,
+               },
+            }),
+         ]);
          return new Response("", { status: 200 });
       } catch (err) {
          console.log(err);

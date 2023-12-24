@@ -15,12 +15,13 @@ const OverallCard = async () => {
       include: { enrollments: true },
    });
 
-   let total_expected_profit = 0;
-   if (member) {
-      for (let k = 0; k < member.enrollments.length; k++) {
-         const enrollment = member.enrollments[k];
-         total_expected_profit += enrollment.interestToEarn;
-      }
+   function expectedProfit(enrollments: any[] | undefined) {
+      const profits = enrollments?.reduce(
+         (total_profit, enrollment: any) =>
+            total_profit + enrollment.interestToEarn,
+         0,
+      );
+      return profits.toFixed(0);
    }
 
    return (
@@ -47,7 +48,7 @@ const OverallCard = async () => {
                   <div className="flex flex-col items-start gap-1">
                      <p className="text-gray-400 text-xs">Accrued Earnings</p>
                      <h2 className="text-2xl lg:text-3xl text-gray-200 text-bold">
-                        ₦{transformMoney(total_expected_profit)}
+                        ₦{transformMoney(expectedProfit(member?.enrollments))}
                      </h2>
                   </div>
                   <div className="flex flex-col items-start gap-1">
